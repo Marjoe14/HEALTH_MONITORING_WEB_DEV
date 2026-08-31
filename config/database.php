@@ -3,12 +3,23 @@
 // DATABASE CONFIGURATION FOR RAILWAY
 // ========================================
 
-// Use Railway environment variables
-$host = getenv('MYSQLHOST') ?: 'localhost';
-$port = getenv('MYSQLPORT') ?: '3306';
-$database = getenv('MYSQLDATABASE') ?: 'barangay_health';
-$user = getenv('MYSQLUSER') ?: 'root';
-$password = getenv('MYSQLPASSWORD') ?: '';
+// Try MYSQL_URL first
+$mysqlUrl = getenv('MYSQL_URL') ?: getenv('MYSQL_PRIVATE_URL');
+
+if ($mysqlUrl) {
+    $parsed = parse_url($mysqlUrl);
+    $host = $parsed['host'] ?? 'localhost';
+    $port = $parsed['port'] ?? '3306';
+    $database = ltrim($parsed['path'] ?? '', '/');
+    $user = $parsed['user'] ?? 'root';
+    $password = $parsed['pass'] ?? '';
+} else {
+    $host = getenv('MYSQLHOST') ?: 'localhost';
+    $port = getenv('MYSQLPORT') ?: '3306';
+    $database = getenv('MYSQLDATABASE') ?: 'railway';
+    $user = getenv('MYSQLUSER') ?: 'root';
+    $password = getenv('MYSQLPASSWORD') ?: '';
+}
 
 define('DB_HOST', $host);
 define('DB_PORT', $port);
