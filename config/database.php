@@ -1,6 +1,6 @@
 <?php
 // ========================================
-// DATABASE CONFIGURATION
+// DATABASE CONFIGURATION FOR RAILWAY
 // ========================================
 
 // Use Railway environment variables
