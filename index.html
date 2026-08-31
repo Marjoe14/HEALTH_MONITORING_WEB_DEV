@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Smart Community Health Monitoring · Barangay Garsika</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4A90D9">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo" id="logo">
+                <i class="fas fa-heartbeat logo-icon"></i>
+                <span>Barangay<span class="logo-highlight">Garsika</span></span>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="auth/login.php" class="btn btn-outline-primary btn-sm">Login</a>
+                <a href="auth/register.php" class="btn btn-primary btn-sm">Register</a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#benefits">Benefits</a>
+            <a href="#contact">Contact</a>
+            <hr>
+            <a href="auth/login.php" class="btn btn-outline-primary mobile-btn">Login</a>
+            <a href="auth/register.php" class="btn btn-primary mobile-btn">Register</a>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="badge">v2.0 · Barangay Garsika</span>
+                <h1>Smart Community <br class="mobile-break">Health Monitoring</h1>
+                <p class="hero-desc">
+                    Empowering Barangay Health Workers with digital tools for 
+                    resident profiling, prenatal care, immunization tracking, 
+                    and real-time health alerts — even offline.
+                </p>
+                <div class="hero-buttons">
+                    <a href="auth/register.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-user-plus"></i> Get Started
+                    </a>
+                    <a href="#features" class="btn btn-outline-primary btn-lg">
+                        Explore <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div><span>0</span> Residents</div>
+                    <div><span>0</span> BHWs</div>
+                    <div><span>0%</span> SMS delivery</div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="illustration-card">
+                    <div class="card-icon"><i class="fas fa-notes-medical"></i></div>
+                    <div class="card-content">
+                        <h4>Offline Sync</h4>
+                        <p>Data collected remotely auto-syncs</p>
+                    </div>
+                </div>
+                <div class="illustration-card card-2">
+                    <div class="card-icon"><i class="fas fa-baby"></i></div>
+                    <div class="card-content">
+                        <h4>Immunization</h4>
+                        <p>Track child vaccination schedules</p>
+                    </div>
+                </div>
+                <div class="illustration-card card-3">
+                    <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+                    <div class="card-content">
+                        <h4>Analytics</h4>
+                        <p>Visual reports for officials</p>
+                    </div>
+                </div>
+                <div class="floating-dots"></div>
+            </div>
+        </div>
+        <!-- Wave Divider -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 C300,100 600,0 900,80 C1050,120 1150,60 1200,40 L1200,120 L0,120 Z" fill="#f0f7ff"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES SECTION ===== -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Features</span>
+                <h2>Built for community healthcare</h2>
+                <p>Everything you need to digitize health records and improve care delivery.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-user-md"></i></div>
+                    <h4>Resident Profiling</h4>
+                    <p>Centralized digital profiles with complete medical history and household data.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-weight"></i></div>
+                    <h4>BMI + OPT</h4>
+                    <p>Auto-calculated BMI with WHO classification and Operation Timbang for children.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-baby-carriage"></i></div>
+                    <h4>Prenatal Care</h4>
+                    <p>Track LMP, due dates, milestones, and schedule check-ups for expecting mothers.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-syringe"></i></div>
+                    <h4>Immunization</h4>
+                    <p>Log vaccines, set schedules, and receive alerts for overdue immunizations.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-wifi-slash"></i></div>
+                    <h4>Offline First</h4>
+                    <p>Record data anywhere — automatic sync when internet is available.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-sms"></i></div>
+                    <h4>SMS Alerts</h4>
+                    <p>One-way SMS for appointment reminders, vaccination alerts, and advisories.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h4>Visual Reports</h4>
+                    <p>Monthly health reports and dashboards for data-driven decisions.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Data Privacy</h4>
+                    <p>Secure login, role-based access, and encrypted records compliant with DPA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT / HOW IT WORKS ===== -->
+    <section class="about" id="about">
+        <div class="container about-grid">
+            <div class="about-image">
+                <div class="about-img-placeholder">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="section-tag">About the system</span>
+                <h2>Transforming Barangay Garsika's health services</h2>
+                <p>
+                    The Smart Community Health Monitoring System replaces paper-based records 
+                    with a centralized digital platform. BHWs can profile residents, track prenatal 
+                    and immunization data, monitor BMI, and send SMS alerts — all with offline 
+                    capability for remote areas.
+                </p>
+                <ul class="about-list">
+                    <li><i class="fas fa-check-circle"></i> Designed for Barangay Health Workers</li>
+                    <li><i class="fas fa-check-circle"></i> Works offline with auto-sync</li>
+                    <li><i class="fas fa-check-circle"></i> Automated SMS notifications</li>
+                    <li><i class="fas fa-check-circle"></i> Real-time analytics for officials</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BENEFITS SECTION ===== -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Benefits</span>
+                <h2>Who benefits from the system?</h2>
+                <p>Designed to serve every stakeholder in the community.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-user-nurse"></i></div>
+                    <h4>Barangay Health Workers</h4>
+                    <p>Eliminate paperwork, reduce manual errors, and access resident data instantly — even in the field.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                    <h4>Barangay Officials</h4>
+                    <p>Get real-time health reports, visual analytics, and accurate data for planning and resource allocation.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-user-friends"></i></div>
+                    <h4>Residents</h4>
+                    <p>Receive timely reminders for prenatal check-ups, immunizations, and health advisories via SMS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT / CTA ===== -->
+    <section class="contact" id="contact">
+        <div class="container contact-wrapper">
+            <div class="contact-content">
+                <span class="section-tag">Contact Us</span>
+                <h2>Reach out to our Barangay Health Workers</h2>
+                <p>For health concerns, appointments, or inquiries, please contact our Barangay Health Center directly.</p>
+                <div class="contact-info">
+                    <div><i class="fas fa-map-marker-alt"></i> Barangay Garsika Health Center, Concepcion, Makilala, Cotabato</div>
+                    <div><i class="fas fa-phone-alt"></i> (555) 555-0199 </div>
+                    <div><i class="fas fa-mobile-alt"></i> (63+) 0912-223-4567</div>
+                    <div><i class="fas fa-clock"></i> Monday - Friday: 8:00 AM - 5:00 PM</div>
+                </div>
+                <div class="contact-bhw">
+                    <h4><i class="fas fa-user-nurse"></i> Our Barangay Health Workers</h4>
+                    <ul class="bhw-list">
+                        <li><span>BHW Den Mark Aninipot</span> <span class="bhw-role">Head BHW</span></li>
+                        <li><span>BHW Emanuel Estrada</span> <span class="bhw-role">Prenatal Care</span></li>
+                        <li><span>BHW Jerry Tagubase Jr.</span> <span class="bhw-role">Immunization</span></li>
+                        <li><span>BHW Juan Dela Cruz</span> <span class="bhw-role">BMI & OPT</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-form">
+                <div class="contact-form-header">
+                    <h4><i class="fas fa-paper-plane"></i> Send a Message</h4>
+                    <p>Your message will be sent directly to the Barangay Health Workers.</p>
+                </div>
+                <form id="contactForm">
+                    <input type="text" placeholder="Your Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="tel" placeholder="Mobile Number (Optional)">
+                    <textarea rows="3" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn btn-primary btn-block">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+                <p class="form-note"><i class="fas fa-info-circle"></i> For emergencies, please call the Barangay Health Center directly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-heartbeat logo-icon"></i>
+                        <span>Barangay<span class="logo-highlight">Garsika</span></span>
+                    </div>
+                    <p>Smart Community Health Monitoring System</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#features">Features</a>
+                    <a href="#about">About</a>
+                    <a href="#benefits">Benefits</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 · Barangay Garsika</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Install PWA Button -->
+    <div id="pwaInstall" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); z-index:999; background:var(--white); color:var(--dark); padding:12px 24px; border-radius:50px; box-shadow:0 8px 32px rgba(0,0,0,0.15); display:none; align-items:center; gap:12px; font-family:var(--font); border:1px solid var(--light-blue);">
+        <span>📱 Install App</span>
+        <button id="installBtn" style="background:var(--primary); color:white; border:none; padding:6px 20px; border-radius:50px; font-weight:600; cursor:pointer; font-family:var(--font);">Install</button>
+        <button id="closeInstall" style="background:none; border:none; color:var(--gray); font-size:1.2rem; cursor:pointer;">✕</button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

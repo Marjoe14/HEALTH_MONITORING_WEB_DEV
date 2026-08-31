@@ -1,0 +1,8 @@
+{
+    "name": "barangay/garsika-health",
+    "description": "Smart Community Health Monitoring System",
+    "type": "project",
+    "require": {
+        "php": ">=8.0"
+    }
+}
