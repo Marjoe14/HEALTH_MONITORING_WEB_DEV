@@ -945,65 +945,85 @@ try {
             </section>
 
             <!-- ===== REPORTS PAGE ===== -->
-            <section class="page-section" id="page-reports">
-                <div class="page-header">
-                    <div class="header-title">
-                        <h2><i class="fas fa-chart-bar"></i> Reports</h2>
-                        <p>Generate and view health reports for Barangay Garsika</p>
-                    </div>
-                </div>
+<section class="page-section" id="page-reports">
+    <div class="page-header">
+        <div class="header-title">
+            <h2><i class="fas fa-chart-bar"></i> Reports</h2>
+            <p>Generate and view health reports for Barangay Garsika</p>
+        </div>
+    </div>
 
-                <div class="reports-grid">
-                    <div class="report-card">
-                        <div class="report-icon blue">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h4>Resident Statistics</h4>
-                        <p>Demographic breakdown of residents</p>
-                        <button class="btn btn-outline btn-sm generate-report" data-report="resident">Generate</button>
-                    </div>
-                    <div class="report-card">
-                        <div class="report-icon green">
-                            <i class="fas fa-baby-carriage"></i>
-                        </div>
-                        <h4>Prenatal Report</h4>
-                        <p>Summary of prenatal care activities</p>
-                        <button class="btn btn-outline btn-sm generate-report" data-report="prenatal">Generate</button>
-                    </div>
-                    <div class="report-card">
-                        <div class="report-icon orange">
-                            <i class="fas fa-syringe"></i>
-                        </div>
-                        <h4>Immunization Report</h4>
-                        <p>Vaccination coverage report</p>
-                        <button class="btn btn-outline btn-sm generate-report" data-report="immunization">Generate</button>
-                    </div>
-                    <div class="report-card">
-                        <div class="report-icon purple">
-                            <i class="fas fa-weight"></i>
-                        </div>
-                        <h4>BMI Report</h4>
-                        <p>BMI categories and trends</p>
-                        <button class="btn btn-outline btn-sm generate-report" data-report="bmi">Generate</button>
-                    </div>
-                    <div class="report-card">
-                        <div class="report-icon red">
-                            <i class="fas fa-child"></i>
-                        </div>
-                        <h4>OPT Report</h4>
-                        <p>Children's nutritional status</p>
-                        <button class="btn btn-outline btn-sm generate-report" data-report="opt">Generate</button>
-                    </div>
-                    <div class="report-card">
-                        <div class="report-icon teal">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <h4>Monthly Health Report</h4>
-                        <p>Comprehensive monthly summary</p>
-                        <button class="btn btn-primary btn-sm generate-report" data-report="monthly">Generate</button>
-                    </div>
-                </div>
-            </section>
+    <div class="reports-grid">
+        <div class="report-card">
+            <div class="report-icon blue">
+                <i class="fas fa-users"></i>
+            </div>
+            <h4>Resident Statistics</h4>
+            <p>Demographic breakdown of residents</p>
+            <button class="btn btn-outline btn-sm generate-report" data-report="resident">Generate</button>
+        </div>
+        <div class="report-card">
+            <div class="report-icon green">
+                <i class="fas fa-baby-carriage"></i>
+            </div>
+            <h4>Prenatal Report</h4>
+            <p>Summary of prenatal care activities</p>
+            <button class="btn btn-outline btn-sm generate-report" data-report="prenatal">Generate</button>
+        </div>
+        <div class="report-card">
+            <div class="report-icon orange">
+                <i class="fas fa-syringe"></i>
+            </div>
+            <h4>Immunization Report</h4>
+            <p>Vaccination coverage report</p>
+            <button class="btn btn-outline btn-sm generate-report" data-report="immunization">Generate</button>
+        </div>
+        <div class="report-card">
+            <div class="report-icon purple">
+                <i class="fas fa-weight"></i>
+            </div>
+            <h4>BMI Report</h4>
+            <p>BMI categories and trends</p>
+            <button class="btn btn-outline btn-sm generate-report" data-report="bmi">Generate</button>
+        </div>
+        <div class="report-card">
+            <div class="report-icon red">
+                <i class="fas fa-child"></i>
+            </div>
+            <h4>OPT Report</h4>
+            <p>Children's nutritional status</p>
+            <button class="btn btn-outline btn-sm generate-report" data-report="opt">Generate</button>
+        </div>
+        <div class="report-card">
+            <div class="report-icon teal">
+                <i class="fas fa-file-alt"></i>
+            </div>
+            <h4>Monthly Health Report</h4>
+            <p>Comprehensive monthly summary</p>
+            <button class="btn btn-primary btn-sm generate-report" data-report="monthly">Generate</button>
+        </div>
+    </div>
+
+    <!-- Report Preview Area -->
+    <div class="report-preview" id="reportPreview" style="display:none;">
+        <div class="report-preview-header">
+            <h3 id="reportPreviewTitle">Report Preview</h3>
+            <button class="btn btn-outline btn-sm" id="closePreview">Close</button>
+        </div>
+        <div class="report-preview-content">
+            <div class="report-placeholder">
+                <i class="fas fa-file-alt"></i>
+                <p>Report content will appear here.</p>
+                <span class="empty-sub">Click a report button above to generate.</span>
+            </div>
+        </div>
+        <div class="report-preview-actions">
+            <button class="btn btn-outline btn-sm"><i class="fas fa-print"></i> Print</button>
+            <button class="btn btn-outline btn-sm"><i class="fas fa-file-pdf"></i> Export PDF</button>
+            <button class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Download</button>
+        </div>
+    </div>
+</section>
 
             <!-- ===== SETTINGS PAGE ===== -->
             <section class="page-section" id="page-settings">
@@ -2052,5 +2072,6 @@ try {
     </script>
     <script src="js/bhw.js"></script>
     <script src="js/vaccine_management.js"></script>
+    <script src="js/bhw_reports.js"></script>
 </body>
 </html>
