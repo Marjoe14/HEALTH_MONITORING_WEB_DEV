@@ -11,14 +11,14 @@ if ($databaseUrl) {
     $parsed = parse_url($databaseUrl);
     $host = $parsed['host'] ?? 'turntable.proxy.rlwy.net';
     $port = $parsed['port'] ?? '59781';
-    $database = ltrim($parsed['path'] ?? 'barangay_health', '/');
+    $database = ltrim($parsed['path'] ?? 'railway', '/');
     $user = $parsed['user'] ?? 'root';
     $password = $parsed['pass'] ?? 'tisIzXSXPpzANHyfZsjdyQHsGVyICiqG';
 } else {
     // Fallback to individual environment variables (your original code)
     $host = getenv('MYSQLHOST') ?: 'turntable.proxy.rlwy.net';
     $port = getenv('MYSQLPORT') ?: '59781';
-    $database = getenv('MYSQLDATABASE') ?: 'barangay_health';
+    $database = getenv('MYSQLDATABASE') ?: 'railway';
     $user = getenv('MYSQLUSER') ?: 'root';
     $password = getenv('MYSQLPASSWORD') ?: 'tisIzXSXPpzANHyfZsjdyQHsGVyICiqG';
 }
