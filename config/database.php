@@ -9,18 +9,18 @@ $databaseUrl = getenv('DATABASE_URL');
 if ($databaseUrl) {
     // Parse the connection string
     $parsed = parse_url($databaseUrl);
-    $host = $parsed['host'] ?? 'switchback.proxy.rlwy.net';
-    $port = $parsed['port'] ?? '17332';
+    $host = $parsed['host'] ?? 'turntable.proxy.rlwy.net';
+    $port = $parsed['port'] ?? '59781';
     $database = ltrim($parsed['path'] ?? 'railway', '/');
     $user = $parsed['user'] ?? 'root';
-    $password = $parsed['pass'] ?? 'iLcVPFNlbWlAZCsSiZKCZiFYXpSBUfDg';
+    $password = $parsed['pass'] ?? 'tisIzXSXPpzANHyfZsjdyQHsGVyICiqG';
 } else {
     // Fallback to individual environment variables (your original code)
-    $host = getenv('MYSQLHOST') ?: 'switchback.proxy.rlwy.net';
-    $port = getenv('MYSQLPORT') ?: '17332';
+    $host = getenv('MYSQLHOST') ?: 'turntable.proxy.rlwy.net';
+    $port = getenv('MYSQLPORT') ?: '59781';
     $database = getenv('MYSQLDATABASE') ?: 'railway';
     $user = getenv('MYSQLUSER') ?: 'root';
-    $password = getenv('MYSQLPASSWORD') ?: 'iLcVPFNlbWlAZCsSiZKCZiFYXpSBUfDg';
+    $password = getenv('MYSQLPASSWORD') ?: 'tisIzXSXPpzANHyfZsjdyQHsGVyICiqG';
 }
 
 // ⚠️ THESE NAMES ARE NOT CHANGED - They remain exactly as before
