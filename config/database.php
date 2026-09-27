@@ -3,27 +3,13 @@
 // DATABASE CONFIGURATION FOR RAILWAY
 // ========================================
 
-// Try DATABASE_URL first (from Railway)
-$databaseUrl = getenv('DATABASE_URL');
+// 🔥 HARDCODED PUBLIC URL — DO NOT PARSE DATABASE_URL
+$host     = 'turntable.proxy.rlwy.net';
+$port     = '59781';
+$database = 'railway';
+$user     = 'root';
+$password = 'tisIzXSXPpzANHyfZsjdyQHsGVyICiqG';
 
-if ($databaseUrl) {
-    // Parse the connection string
-    $parsed = parse_url($databaseUrl);
-    $host = $parsed['host'] ?? 'turntable.proxy.rlwy.net';
-    $port = $parsed['port'] ?? '59781';
-    $database = ltrim($parsed['path'] ?? 'railway', '/');
-    $user = $parsed['user'] ?? 'root';
-    $password = $parsed['pass'] ?? 'tisIzXSXPpzANHyfZsjdyQHsGVyICiqG';
-} else {
-    // Fallback to individual environment variables (your original code)
-    $host = getenv('MYSQLHOST') ?: 'turntable.proxy.rlwy.net';
-    $port = getenv('MYSQLPORT') ?: '59781';
-    $database = getenv('MYSQLDATABASE') ?: 'railway';
-    $user = getenv('MYSQLUSER') ?: 'root';
-    $password = getenv('MYSQLPASSWORD') ?: 'tisIzXSXPpzANHyfZsjdyQHsGVyICiqG';
-}
-
-// ⚠️ THESE NAMES ARE NOT CHANGED - They remain exactly as before
 define('DB_HOST', $host);
 define('DB_PORT', $port);
 define('DB_NAME', $database);
