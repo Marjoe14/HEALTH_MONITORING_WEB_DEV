@@ -3,27 +3,28 @@
 // DATABASE CONFIGURATION FOR RAILWAY
 // ========================================
 
-// Try DATABASE_URL first (from Railway)
+// ✅ ALWAYS use barangay_health — Railway's default is "railway" (empty)
+$database = 'barangay_health';
+
+// Read connection details from Railway's DATABASE_URL
 $databaseUrl = getenv('DATABASE_URL');
 
 if ($databaseUrl) {
-    // Parse the connection string
-    $parsed = parse_url($databaseUrl);
-    $host = $parsed['host'] ?? 'turntable.proxy.rlwy.net';
-    $port = $parsed['port'] ?? '59781';
-    $database = ltrim($parsed['path'] ?? 'railway', '/');
-    $user = $parsed['user'] ?? 'root';
-    $password = $parsed['pass'] ?? 'tisIzXSXPpzANHyfZsjdyQHsGVyICiqG';
+    // Parse Railway's connection string
+    $parsed   = parse_url($databaseUrl);
+    $host     = $parsed['host'] ?? 'turntable.proxy.rlwy.net';
+    $port     = $parsed['port'] ?? '59781';
+    $user     = $parsed['user'] ?? 'root';
+    // Use URL password; fall back to MYSQLPASSWORD env var if URL has none
+    $password = $parsed['pass'] ?? getenv('MYSQLPASSWORD') ?: '';
 } else {
-    // Fallback to individual environment variables (your original code)
-    $host = getenv('MYSQLHOST') ?: 'turntable.proxy.rlwy.net';
-    $port = getenv('MYSQLPORT') ?: '59781';
-    $database = getenv('MYSQLDATABASE') ?: 'railway';
-    $user = getenv('MYSQLUSER') ?: 'root';
+    // Fallback: individual environment variables
+    $host     = getenv('MYSQLHOST')     ?: 'turntable.proxy.rlwy.net';
+    $port     = getenv('MYSQLPORT')     ?: '59781';
+    $user     = getenv('MYSQLUSER')     ?: 'root';
     $password = getenv('MYSQLPASSWORD') ?: 'tisIzXSXPpzANHyfZsjdyQHsGVyICiqG';
 }
 
-// ⚠️ THESE NAMES ARE NOT CHANGED - They remain exactly as before
 define('DB_HOST', $host);
 define('DB_PORT', $port);
 define('DB_NAME', $database);
@@ -38,9 +39,9 @@ function getDBConnection() {
             DB_USER,
             DB_PASS,
             [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES => false
+                PDO::ATTR_EMULATE_PREPARES   => false
             ]
         );
         return $pdo;
