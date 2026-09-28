@@ -1928,14 +1928,8 @@ try {
                     </select>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="editAppointmentStatus">Status <span class="required">*</span></label>
-                <select id="editAppointmentStatus" required>
-                    <option value="Upcoming">Upcoming</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Cancelled">Cancelled</option>
-                </select>
-            </div>
+            <!-- Status is auto-set to "Upcoming" — no dropdown needed -->
+<input type="hidden" id="appointmentStatus" value="Upcoming">
             <div class="form-group">
                 <label for="editAppointmentNotes">Notes</label>
                 <textarea id="editAppointmentNotes" rows="2" placeholder="Additional notes or special instructions..."></textarea>
