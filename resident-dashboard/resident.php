@@ -811,7 +811,7 @@ try {
 <div class="modal-overlay" id="viewResidentModal">
     <div class="modal-content modal-lg">
         <div class="modal-header">
-            <h3><i class="fas fa-calendar-check"></i> Appointment Details</h3>
+            <h3><i class="fas fa-calendar-check"></i></h3>
             <button class="modal-close close-modal" id="closeViewModal">&times;</button>
         </div>
         <div id="residentDetailContent">
