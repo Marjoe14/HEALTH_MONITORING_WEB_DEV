@@ -753,14 +753,13 @@ function viewResidentAppointmentDetail(appointmentId) {
                 const app = data.appointment;
                 const statusClass = app.status.toLowerCase();
 
-                const html = `
+                                const html = `
                     <div class="resident-detail">
                         <div class="detail-header">
                             <div class="detail-avatar">
                                 <i class="fas fa-calendar-check"></i>
                             </div>
                             <div class="detail-name">
-                                <h2>Appointment Details</h2>
                                 <span class="detail-type status-badge ${statusClass}">${app.status}</span>
                             </div>
                         </div>
