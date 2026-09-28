@@ -129,7 +129,7 @@ function viewResidentAppointmentDetail(appointmentId) {
 
                 const html = `
                     <div class="resident-detail">
-                        <div class="detail-header">
+                                               <div class="detail-header">
                             <div class="detail-name">
                                 <span class="detail-type status-badge ${statusClass}">${app.status}</span>
                             </div>
