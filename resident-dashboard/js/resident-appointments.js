@@ -130,9 +130,6 @@ function viewResidentAppointmentDetail(appointmentId) {
                 const html = `
                     <div class="resident-detail">
                         <div class="detail-header">
-                            <div class="detail-avatar">
-                                <i class="fas fa-calendar-check"></i>
-                            </div>
                             <div class="detail-name">
                                 <span class="detail-type status-badge ${statusClass}">${app.status}</span>
                             </div>
