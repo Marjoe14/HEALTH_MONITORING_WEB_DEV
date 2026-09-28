@@ -3330,20 +3330,22 @@ function populateEditAppointmentResidents(selectedId) {
     // ========================================
 // APPOINTMENTS - ADD WITH MODAL
 // ========================================
-if (addAppointmentBtn) {
-    addAppointmentBtn.addEventListener('click', function() {
-        populateAppointmentResidents();
-        addAppointmentForm.reset();
-        // Set default date to today
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('appointmentDate').value = today;
-        document.getElementById('appointmentStatus').value = 'Upcoming';
-        const submitBtn = addAppointmentForm.querySelector('button[type="submit"]');
-        submitBtn.textContent = 'Schedule Appointment';
-        submitBtn.disabled = false;
-        openModal(addAppointmentModal);
-    });
-}
+    if (addAppointmentBtn) {
+        addAppointmentBtn.addEventListener('click', function() {
+            populateAppointmentResidents();
+            addAppointmentForm.reset();
+            // Set default date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('appointmentDate').value = today;
+            // Auto-set status to 'Upcoming'
+            const statusInput = document.getElementById('appointmentStatus');
+            if (statusInput) statusInput.value = 'Upcoming';
+            const submitBtn = addAppointmentForm.querySelector('button[type="submit"]');
+            submitBtn.textContent = 'Schedule Appointment';
+            submitBtn.disabled = false;
+            openModal(addAppointmentModal);
+        });
+    }
 
 function populateAppointmentResidents() {
     const select = document.getElementById('appointmentResident');
@@ -3367,65 +3369,74 @@ function populateAppointmentResidents() {
 // ========================================
 // ADD APPOINTMENT FORM SUBMIT
 // ========================================
-if (addAppointmentForm) {
-    addAppointmentForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+    if (addAppointmentForm) {
+        addAppointmentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-        const residentId = parseInt(document.getElementById('appointmentResident').value);
-        const date = document.getElementById('appointmentDate').value;
-        const time = document.getElementById('appointmentTime').value;
-        const type = document.getElementById('appointmentType').value;
-        const status = document.getElementById('appointmentStatus').value;
-        const notes = document.getElementById('appointmentNotes').value;
+            const residentId = parseInt(document.getElementById('appointmentResident').value);
+            const date = document.getElementById('appointmentDate').value;
+            const time = document.getElementById('appointmentTime').value;
+            const type = document.getElementById('appointmentType').value;
+            // ✅ STATUS IS AUTO-SET TO 'Upcoming'
+            const status = 'Upcoming';
+            const notes = document.getElementById('appointmentNotes').value;
 
-        if (!residentId || !date || !time || !type) {
-            showToast('Please fill in all required fields.', 'error');
-            return;
-        }
-
-        const resident = residents.find(function(r) { return r.id === residentId; });
-        const residentName = resident ? resident.fullName : 'Unknown';
-
-        const submitBtn = this.querySelector('button[type="submit"]');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Saving...';
-
-        const appData = {
-            resident_id: residentId,
-            date: date,
-            time: time,
-            type: type,
-            status: status,
-            notes: notes || ''
-        };
-
-        fetch('ajax/add_appointment.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(appData).toString()
-        })
-        .then(function(response) { return response.json(); })
-        .then(function(data) {
-            if (data.success) {
-                showToast('Appointment scheduled for ' + residentName + '!', 'success');
-                closeModal(addAppointmentModal);
-                addAppointmentForm.reset();
-                submitBtn.textContent = 'Schedule Appointment';
-                submitBtn.disabled = false;
-                fetchAllRecords();
-            } else {
-                showToast(data.message || 'Failed to schedule appointment.', 'error');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Schedule Appointment';
+            if (!residentId || !date || !time || !type) {
+                showToast('Please fill in all required fields.', 'error');
+                return;
             }
-        })
-        .catch(function() {
-            showToast('Error connecting to server.', 'error');
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Schedule Appointment';
+
+            const resident = residents.find(function(r) { return r.id === residentId; });
+            const residentName = resident ? resident.fullName : 'Unknown';
+
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Saving...';
+
+            const appData = {
+                resident_id: residentId,
+                date: date,
+                time: time,
+                type: type,
+                status: status,
+                notes: notes || ''
+            };
+
+            fetch('ajax/add_appointment.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(appData).toString()
+            })
+            .then(function(response) { return response.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    showToast('Appointment scheduled for ' + residentName + '!', 'success');
+                    closeModal(addAppointmentModal);
+                    addAppointmentForm.reset();
+                    submitBtn.textContent = 'Schedule Appointment';
+                    submitBtn.disabled = false;
+                    
+                    // Refresh records
+                    fetchAllRecords();
+                    
+                    // ✅ AUTO-REDIRECT TO NOTIFICATIONS PAGE
+                    setTimeout(function() {
+                        navigateTo('notifications');
+                        fetchBhwNotifications();
+                    }, 500);
+                } else {
+                    showToast(data.message || 'Failed to schedule appointment.', 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Schedule Appointment';
+                }
+            })
+            .catch(function() {
+                showToast('Error connecting to server.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Schedule Appointment';
+            });
         });
-    });
-}
+    }
 // ========================================
 // EDIT APPOINTMENT FORM SUBMIT
 // ========================================
